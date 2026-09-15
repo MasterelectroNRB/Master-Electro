@@ -1158,6 +1158,35 @@ document.getElementById('fab-msg').href = MESSENGER_URL;
 let currentSubCode = null;
 let currentSearch = "";
 
+/* ═══════════════════════════════════════
+   سجل التصفح داخل الموقع — زر الرجوع في الهاتف
+   ═══════════════════════════════════════ */
+function savePageHistory(subCode, subName, catName, replace = false) {
+  const state = {
+    ...(history.state || {}),
+    sitePage: true,
+    subCode: subCode || null,
+    subName: subName || null,
+    catName: catName || null
+  };
+  if (replace) history.replaceState(state, '', location.href);
+  else history.pushState(state, '', location.href);
+}
+
+function restorePageFromHistory(state) {
+  currentSubCode = state && state.sitePage ? state.subCode || null : null;
+  currentSearch = "";
+  const searchBox = document.getElementById('search-box');
+  if (searchBox) searchBox.value = "";
+
+  updateBreadcrumb(
+    state && state.sitePage ? state.catName || null : null,
+    state && state.sitePage ? state.subName || null : null
+  );
+  renderProducts();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('active');
   document.getElementById('sidebar-overlay').classList.toggle('active');
@@ -1191,6 +1220,9 @@ function toggleAccordion(btn) {
 }
 
 function selectSubCategory(subCode, subName, catName) {
+  if (currentSubCode !== subCode) {
+    savePageHistory(subCode, subName, catName);
+  }
   currentSubCode = subCode;
   currentSearch = "";
   document.getElementById('search-box').value = "";
@@ -1200,6 +1232,9 @@ function selectSubCategory(subCode, subName, catName) {
 }
 
 function showAll() {
+  if (currentSubCode !== null) {
+    savePageHistory(null, null, null);
+  }
   currentSubCode = null;
   currentSearch = "";
   document.getElementById('search-box').value = "";
@@ -1395,7 +1430,16 @@ window.addEventListener('scroll', () => {
   else btn.classList.remove('visible');
 });
 
+window.addEventListener('popstate', (event) => {
+  // عند الضغط على زر الرجوع في الهاتف نرجع للقسم السابق داخل الموقع
+  restorePageFromHistory(event.state);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
+  // تسجيل الصفحة الرئيسية كنقطة البداية في سجل الموقع
+  if (!history.state || !history.state.sitePage) {
+    savePageHistory(null, null, null, true);
+  }
   renderSidebar();
   renderProducts();
   setTimeout(() => {
