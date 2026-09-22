@@ -2,6 +2,30 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<script>
+/* ═══ حماية النطاق: يمنع عمل الموقع خارج masterelectro.net ═══ */
+(function(){
+  try{
+    var allowedHosts = ["masterelectro.net","www.masterelectro.net"];
+    var host = window.location.hostname;
+    var proto = window.location.protocol;
+    var isAllowed = (proto === "https:" || proto === "http:") && allowedHosts.indexOf(host) !== -1;
+    if(!isAllowed){
+      // إيقاف أي تحميل إضافي للصفحة فوراً
+      if (window.stop) { window.stop(); }
+      // تفريغ الصفحة قبل إعادة التوجيه
+      document.documentElement.innerHTML = "";
+      window.location.replace("https://masterelectro.net/");
+    }
+  }catch(e){
+    // في حال أي خطأ غير متوقع، نعيد التوجيه احتياطاً
+    window.location.replace("https://masterelectro.net/");
+  }
+})();
+</script>
+<noscript>
+  <meta http-equiv="refresh" content="0; url=https://masterelectro.net/">
+</noscript>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#4F46E5">
 <title>MASTERELECTRO.NET | كتالوج القوالب الرقمية</title>
@@ -414,13 +438,6 @@ button{font-family:inherit;}
 /* Enhanced UX */
 .product-actions{display:flex;flex-direction:column;gap:8px;margin-top:auto}.product-actions .btn-order{min-height:46px}.btn-pay{background:linear-gradient(135deg,#F59E0B,#D97706)!important;box-shadow:0 4px 12px rgba(245,158,11,.28)!important}.btn-pay:hover{box-shadow:0 6px 16px rgba(245,158,11,.38)!important}.btn-missing{background:linear-gradient(135deg,#64748B,#475569)!important}.payment-note{font-size:10.5px;color:var(--muted);text-align:center;line-height:1.5}.site-toast{position:fixed;right:16px;left:16px;bottom:22px;z-index:9000;display:flex;justify-content:center;pointer-events:none;opacity:0;transform:translateY(14px);transition:opacity .25s ease,transform .25s ease}.site-toast.active{opacity:1;transform:translateY(0)}.site-toast span{background:#17172A;color:#fff;padding:11px 16px;border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.22);font-size:13px;font-weight:700;text-align:center;max-width:92%}
 
-/* Presentation Studio */
-.ai-maker{margin:18px auto 28px;max-width:1180px;border:1px solid #dbe3ff;border-radius:24px;background:linear-gradient(135deg,#f8faff,#fff);box-shadow:0 12px 38px rgba(36,57,120,.08);overflow:hidden}
-.ai-maker-head{display:flex;justify-content:space-between;gap:20px;padding:26px 28px 18px;background:linear-gradient(135deg,rgba(75,85,220,.10),rgba(16,185,129,.07))}
-.ai-kicker{font-size:11px;font-weight:900;letter-spacing:.12em;color:#5361d9}.ai-maker h2{margin:7px 0 7px;font-size:25px;color:#151936}.ai-maker-head p{margin:0;color:#64748b;line-height:1.8;font-size:13px}.ai-maker-badge{height:max-content;background:#fff;border:1px solid #dbe3ff;padding:8px 12px;border-radius:999px;font-size:11px;font-weight:800;color:#5361d9;white-space:nowrap}
-.ai-maker-grid{display:grid;grid-template-columns:360px 1fr;gap:18px;padding:18px}.ai-maker-form{background:#fff;border:1px solid #e7eaf5;border-radius:18px;padding:18px}.ai-maker-form label{display:block;font-size:12px;font-weight:800;color:#334155;margin-bottom:8px}.ai-maker-form textarea,.ai-maker-form select{width:100%;border:1px solid #d9deeb;border-radius:12px;background:#fbfcff;padding:11px 12px;font:inherit;outline:none;box-sizing:border-box}.ai-maker-form textarea:focus,.ai-maker-form select:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.10)}.ai-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.ai-maker-actions{display:flex;gap:9px;margin-top:14px}.ai-generate-btn,.ai-secondary-btn{border:0;border-radius:12px;padding:11px 14px;font-weight:900;cursor:pointer}.ai-generate-btn{flex:1;background:linear-gradient(135deg,#5965df,#4f46e5);color:#fff;box-shadow:0 8px 18px rgba(79,70,229,.22)}.ai-secondary-btn{background:#eef2ff;color:#4f46e5}.ai-hint{font-size:10.5px;color:#94a3b8;line-height:1.6;margin-top:11px}.ai-result{min-height:310px;border:1px dashed #cbd5e1;border-radius:18px;background:#f8fafc;padding:15px}.ai-empty{height:280px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;color:#94a3b8;text-align:center}.ai-empty-icon{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;background:#eef2ff;color:#6366f1;font-size:25px}.ai-empty strong{color:#475569}.ai-slides-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ai-slide-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:13px;cursor:pointer;transition:.2s}.ai-slide-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(15,23,42,.08)}.ai-slide-num{font-size:10px;color:#6366f1;font-weight:900}.ai-slide-card h3{font-size:14px;margin:6px 0;color:#172033}.ai-slide-card p{font-size:11px;line-height:1.7;color:#64748b;margin:0}.ai-result-toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:11px}.ai-result-toolbar strong{font-size:13px}.ai-toolbar-actions{display:flex;gap:6px}.ai-toolbar-actions button{border:1px solid #dbe3ff;background:#fff;border-radius:9px;padding:7px 9px;font-size:11px;font-weight:800;cursor:pointer}.ai-status{font-size:10px;color:#64748b;margin-bottom:10px}
-@media(max-width:800px){.ai-maker-grid{grid-template-columns:1fr}.ai-maker-head{padding:20px}.ai-maker h2{font-size:21px}.ai-slides-list{grid-template-columns:1fr}.ai-maker-actions{flex-wrap:wrap}.ai-secondary-btn{flex:1}}
-
 /* ═══════════════════════════════════════════════════════
    🎁 Bundle Builder — حزمة التخصصات
    ═══════════════════════════════════════════════════════ */
@@ -759,26 +776,42 @@ button{font-family:inherit;}
   font-size:7px;font-weight:950;
 }
 .bundle-builder-side-link{
+  position:relative;
   display:flex !important;
   align-items:center;
   justify-content:center;
-  gap:7px;
-  margin-top:5px !important;
-  border:1px solid rgba(245,158,11,.48) !important;
-  border-radius:13px !important;
-  background:linear-gradient(135deg,#fff8dc,#fffdf6) !important;
-  color:#8a5a00 !important;
-  box-shadow:0 5px 16px rgba(245,158,11,.10);
+  gap:8px;
+  margin-top:7px !important;
+  border:2px solid rgba(245,158,11,.72) !important;
+  border-radius:15px !important;
+  background:linear-gradient(135deg,#fff4c2,#fffdf6 55%,#fff1b8) !important;
+  color:#7c4a00 !important;
+  box-shadow:0 0 0 2px rgba(245,158,11,.10),0 0 14px rgba(245,158,11,.34),0 7px 22px rgba(245,158,11,.18);
+  animation:bundleSideGlow 1.9s ease-in-out infinite;
+  overflow:hidden;
 }
+.bundle-builder-side-link::after{
+  content:"";position:absolute;inset:-2px;border-radius:15px;
+  border:1px solid rgba(255,255,255,.9);pointer-events:none;
+}
+.bundle-builder-side-link:hover,.bundle-builder-side-link:focus-visible{
+  border-color:#f59e0b !important;
+  box-shadow:0 0 0 3px rgba(245,158,11,.15),0 0 22px rgba(245,158,11,.48),0 10px 25px rgba(245,158,11,.22);
+  transform:translateY(-1px);
+}
+@keyframes bundleSideGlow{0%,100%{box-shadow:0 0 0 2px rgba(245,158,11,.08),0 0 12px rgba(245,158,11,.25),0 7px 20px rgba(245,158,11,.15)}50%{box-shadow:0 0 0 4px rgba(245,158,11,.14),0 0 24px rgba(245,158,11,.55),0 9px 26px rgba(245,158,11,.24)}}
 .bundle-builder-side-link:hover,.bundle-builder-side-link:focus-visible{
   border-color:rgba(245,158,11,.82) !important;
   box-shadow:0 8px 21px rgba(245,158,11,.17);
 }
 .bundle-builder-side-icon{
-  width:22px;height:22px;display:grid;place-items:center;
-  border-radius:7px;background:#fff7df;color:#b45309;
-  font-size:10px;font-weight:950;
+  min-width:40px;height:28px;display:grid;place-items:center;
+  padding:0 5px;border-radius:9px;background:#fff7df;color:#b45309;
+  font-size:12px;font-weight:950;
+  box-shadow:0 0 10px rgba(245,158,11,.35);
+  animation:bundleIconPulse 1.4s ease-in-out infinite;
 }
+@keyframes bundleIconPulse{0%,100%{filter:brightness(1);transform:scale(1)}50%{filter:brightness(1.12);transform:scale(1.06)}}
 .bundle-builder-side-text{
   font-size:11px;font-weight:900;line-height:1.45;
 }
@@ -795,6 +828,95 @@ button{font-family:inherit;}
 }
 </style>
 
+<style id="top-promo-css">
+/* ═══════════ Top Promo Banner — يتحكم به TOP_BANNER_CONFIG (أسفل الملف) ═══════════ */
+/* الشريط يُحقن في الصفحة فقط عند enabled:true، لذلك هذه القواعد لا تؤثر على شيء عند الإيقاف */
+#top-promo{
+  /* أسفل الهيدر الثابت (64px) + شريط المسار (42px) + مسافة 8px */
+  margin:114px auto 0;padding:0 16px;max-width:1200px;position:relative;z-index:1;
+}
+/* الشريط يحل محل الإزاحة العلوية لقسم البحث حتى لا تتضاعف المسافة */
+body.has-top-promo #search-section{margin-top:0;}
+
+.tp-inner{
+  position:relative;overflow:hidden;isolation:isolate;
+  display:flex;flex-direction:column;gap:8px;
+  padding:12px;border-radius:var(--radius-lg);
+  background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);
+  box-shadow:var(--shadow-lg);color:#fff;
+  animation:tpIn .5s ease both;
+}
+.tp-inner::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(245,158,11,.30),transparent 46%),
+    radial-gradient(circle at 92% 100%,rgba(255,255,255,.16),transparent 52%);
+}
+
+.tp-head{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.tp-kicker{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:900;line-height:1.3;}
+.tp-dot{width:8px;height:8px;border-radius:50%;background:#FCD34D;flex-shrink:0;animation:tpDot 2s ease-out infinite;}
+.tp-hint{font-size:11px;font-weight:700;color:rgba(255,255,255,.78);white-space:nowrap;}
+.tp-sub{display:none;font-size:12px;font-weight:600;color:rgba(255,255,255,.82);}
+
+/* شريط متحرك: التمرير التلقائي يتم بالـ JS، ويمكن للمستخدم السحب يدويًا */
+.tp-track{
+  display:flex;gap:10px;margin:-4px -12px 0;padding:11px 12px 4px;
+  overflow-x:auto;overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 22px,#000 calc(100% - 22px),transparent 100%);
+          mask-image:linear-gradient(to right,transparent 0,#000 22px,#000 calc(100% - 22px),transparent 100%);
+}
+.tp-track::-webkit-scrollbar{display:none;}
+
+.tp-item{
+  flex:0 0 auto;width:214px;
+  appearance:none;-webkit-appearance:none;font:inherit;color:inherit;text-align:start;cursor:pointer;
+  position:relative;display:flex;align-items:center;gap:10px;min-height:68px;
+  padding:9px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.13);
+  transition:transform .18s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.tp-item:active{transform:scale(.98);background:rgba(255,255,255,.22);}
+.tp-item:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+@media(hover:hover){
+  .tp-item:hover{transform:translateY(-2px);background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.42);box-shadow:0 8px 20px rgba(23,23,42,.22);}
+}
+/* العروض المميزة (الحزم) أوسع ومحاطة بلون ذهبي */
+.tp-item.tp-featured{width:268px;background:rgba(255,255,255,.2);border-color:rgba(252,211,77,.75);}
+
+.tp-ico{flex:0 0 36px;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;font-size:18px;line-height:1;background:rgba(255,255,255,.18);}
+.tp-featured .tp-ico{flex-basis:40px;width:40px;height:40px;font-size:20px;}
+.tp-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;}
+.tp-name{font-size:13.5px;font-weight:800;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tp-price-row{display:flex;align-items:center;gap:6px;white-space:nowrap;}
+.tp-price{font-size:16px;font-weight:900;line-height:1.25;color:#FDE68A;}
+.tp-cur{font-size:11px;font-weight:700;color:rgba(255,255,255,.85);}
+.tp-save{display:inline-block;font-size:11px;font-weight:800;line-height:1.5;padding:0 8px;border-radius:99px;background:#FCD34D;color:#17172A;}
+.tp-note{font-size:10.5px;font-weight:600;line-height:1.45;color:rgba(255,255,255,.8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tp-badge{position:absolute;top:-9px;left:12px;z-index:1;font-size:10px;font-weight:800;line-height:1.6;padding:0 8px;border-radius:99px;background:var(--accent);color:#17172A;white-space:nowrap;box-shadow:0 2px 8px rgba(23,23,42,.25);animation:tpPulse 2.4s ease-out infinite;}
+
+@media(min-width:640px){
+  .tp-inner{padding:14px;}
+  .tp-track{margin:-4px -14px 0;padding:11px 14px 4px;}
+  .tp-hint{font-size:12px;}
+}
+/* الكمبيوتر: عنوان جانبي + الشريط المتحرك بجواره */
+@media(min-width:900px){
+  .tp-inner{flex-direction:row;align-items:center;gap:18px;padding:14px 18px;}
+  .tp-head{flex:0 0 auto;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px;}
+  .tp-hint{display:none;}
+  .tp-sub{display:block;}
+  .tp-track{flex:1;min-width:0;margin:-4px 0 0;padding:11px 0 4px;}
+}
+
+@keyframes tpIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
+@keyframes tpDot{0%{box-shadow:0 0 0 0 rgba(252,211,77,.65);}70%,100%{box-shadow:0 0 0 7px rgba(252,211,77,0);}}
+@keyframes tpPulse{0%{box-shadow:0 0 0 0 rgba(245,158,11,.55);}70%,100%{box-shadow:0 0 0 6px rgba(245,158,11,0);}}
+@media(prefers-reduced-motion:reduce){
+  #top-promo,#top-promo *,#top-promo *::before,#top-promo *::after{animation:none!important;transition:none!important;}
+}
+</style>
 </head>
 <body>
 <div class="site-toast" id="site-toast" role="status" aria-live="polite"><span id="site-toast-text"></span></div>
@@ -831,9 +953,9 @@ button{font-family:inherit;}
   </div>
   <button class="show-all-btn" onclick="showAll(); toggleSidebar();">عرض جميع القوالب</button>
   <a href="#bundle-maker" class="sidebar-bundle-link bundle-builder-side-link"
-   onclick="document.getElementById('bundle-maker').scrollIntoView({behavior:'smooth'}); toggleSidebar(); return false;"
-   aria-label="🎁 كوّن عروضك التي تهتم بها واحصل على تخفيض">
-  <span class="bundle-builder-side-icon">▼</span>
+   onclick="openBundleFromSidebar(); return false;"
+   aria-label="▼🎁 كوّن عروضك التي تهتم بها واحصل على تخفيض">
+  <span class="bundle-builder-side-icon">▼🎁</span>
   <span class="bundle-builder-side-text">كوّن عروضك التي تهتم بها واحصل على تخفيض</span>
 </a>
   <div class="sidebar-content" id="sidebar-content"></div>
@@ -854,46 +976,7 @@ button{font-family:inherit;}
   </div>
 </section>
 
-<section id="ai-maker" class="ai-maker" aria-labelledby="ai-maker-title">
-  <div class="ai-maker-head">
-    <div>
-      <span class="ai-kicker">✨ PRESENTATION STUDIO</span>
-      <h2 id="ai-maker-title">أنشئ عرضك التقديمي من فكرة واحدة</h2>
-      <p>اكتب الموضوع، اختر عدد الشرائح والأسلوب، ثم أنشئ مخطط عرض قابل للتعديل والمعاينة مباشرة داخل الموقع.</p>
-    </div>
-    <div class="ai-maker-badge">بدون تسجيل</div>
-  </div>
-  <div class="ai-maker-grid">
-    <div class="ai-maker-form">
-      <label for="ai-prompt">موضوع العرض</label>
-      <textarea id="ai-prompt" rows="4" placeholder="مثال: الطاقة الشمسية وتطبيقاتها في الجزائر للطلاب"></textarea>
-      <div class="ai-controls">
-        <label>عدد الشرائح
-          <select id="ai-slides-count">
-            <option value="6">6</option><option value="8" selected>8</option><option value="10">10</option><option value="12">12</option>
-          </select>
-        </label>
-        <label>الأسلوب
-          <select id="ai-style">
-            <option value="professional">احترافي</option><option value="education">تعليمي</option><option value="minimal">بسيط</option><option value="creative">إبداعي</option>
-          </select>
-        </label>
-      </div>
-      <div class="ai-maker-actions">
-        <button class="ai-generate-btn" onclick="generatePresentation()">✨ إنشاء العرض</button>
-        <button class="ai-secondary-btn" onclick="fillExamplePrompt()">تجربة مثال</button>
-      </div>
-      <div class="ai-hint">يمكنك بعد الإنشاء تعديل النصوص، إعادة التوليد، أو تصدير نسخة HTML جاهزة للطباعة كـ PDF.</div>
-    </div>
-    <div class="ai-result" id="ai-result">
-      <div class="ai-empty">
-        <div class="ai-empty-icon">✦</div>
-        <strong>سيظهر العرض هنا</strong>
-        <span>أدخل موضوعًا واضغط «إنشاء العرض»</span>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 
 <a href="#bundle-maker" class="sidebar-bundle-link bundle-maker-cta"
@@ -922,7 +1005,7 @@ button{font-family:inherit;}
   <div class="bundle-maker-body">
     <div class="bundle-settings">
       <div class="bundle-discount-note">
-        <span class="bundle-discount-value" id="bundle-discount-label">تخفيضات تتراكم مع كل إضافة: الحزمة الكاملة 12GB = خصم 1,000 دج، والعناصر الإضافية بخصم تدريجي 250 دج ← 350 دج ← 500 دج. كلما أضفت أكثر، وفّرت أكثر!</span>الحزمة الكاملة 12GB: خصم 1,000 دج عند جمعها مع أي عنصر آخر. وكل عنصر إضافي يمنحك خصمًا أكبر تدريجيًا: 250 دج ثم 350 دج ثم 500 دج لكل عنصر بعده.</span>
+        <span class="bundle-discount-value" id="bundle-discount-label">الحزمة الكاملة 12GB: خصم 1,000 دج عند جمعها مع أي عنصر آخر. وكل عنصر إضافي يمنحك خصمًا أكبر تدريجيًا: 250 دج ثم 350 دج ثم 500 دج لكل عنصر بعده.</span>
       </div>
       <div class="bundle-settings-actions">
         <button id="bundle-show-options-btn" class="bundle-show-options-btn" type="button"
@@ -2178,20 +2261,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ═══════════════════════════════════════════════════════
-   Presentation Studio — مولد عرض محلي قابل للتعديل
-   ملاحظة: هذا يعمل بدون API خارجي؛ لربطه بموديل ذكاء اصطناعي حقيقي
-   يمكن استبدال buildPresentationData() بطلب إلى خادمك الآمن.
-   ═══════════════════════════════════════════════════════ */
-const presentationState={slides:[],title:''};
-function fillExamplePrompt(){document.getElementById('ai-prompt').value='الطاقة الشمسية وتطبيقاتها في الجزائر للطلاب';generatePresentation();}
-function detectTopic(prompt){const p=normalizeSearch(prompt||'');if(p.includes('طاق')||p.includes('شمس'))return {title:'الطاقة الشمسية وتطبيقاتها',bullets:['مفهوم الطاقة الشمسية','مكونات النظام الشمسي','أنواع الألواح الشمسية','الاستخدامات العملية','المزايا والتحديات','فرص التطوير المستقبلية']};if(p.includes('ذكاء')||p.includes('ai'))return {title:'الذكاء الاصطناعي',bullets:['تعريف الذكاء الاصطناعي','كيف تعمل النماذج الذكية','أهم التطبيقات','الفوائد العملية','التحديات والمسؤولية','المستقبل والمهارات المطلوبة']};if(p.includes('تسويق')||p.includes('marketing'))return {title:'استراتيجية التسويق الرقمي',bullets:['فهم الجمهور','تحديد العرض والقيمة','القنوات الرقمية','المحتوى والإعلانات','قياس الأداء','خطة التحسين']};return {title:(prompt||'عرض تقديمي احترافي').trim(),bullets:['مقدمة وتمهيد للموضوع','المفاهيم الأساسية','أهم العناصر والمحاور','أمثلة وتطبيقات عملية','التحديات والحلول','الخلاصة والتوصيات']};}
-function buildPresentationData(prompt,count,style){const base=detectTopic(prompt), slides=[];const intro=base.title;slides.push({title:intro,body:'عرض مختصر ومنظم يساعد على فهم الموضوع وبناء صورة واضحة عنه.'});const needed=Math.max(2,count-2);for(let i=0;i<needed;i++){const b=base.bullets[i%base.bullets.length];slides.push({title:b,body:style==='education'?'شرح مبسط مع أمثلة وأسئلة تساعد على الفهم.':style==='creative'?'أفكار رئيسية بصياغة مرنة مع أمثلة قابلة للتطبيق.':style==='minimal'?'نقاط مركزة ومباشرة حول هذا المحور.':'نقاط رئيسية منظمة مع سياق عملي وتطبيقات واضحة.'});}slides.push({title:'الخلاصة',body:'أهم ما ينبغي تذكره، مع خطوات عملية مقترحة للانتقال من الفكرة إلى التطبيق.'});return {title:base.title,slides:slides.slice(0,count)};}
-function generatePresentation(){const prompt=document.getElementById('ai-prompt').value.trim();if(!prompt){showToast('اكتب موضوع العرض أولاً.');document.getElementById('ai-prompt').focus();return;}const count=Number(document.getElementById('ai-slides-count').value)||8;const style=document.getElementById('ai-style').value||'professional';const data=buildPresentationData(prompt,count,style);presentationState.slides=data.slides;presentationState.title=data.title;renderPresentationResult(style);showToast('تم إنشاء مخطط العرض بنجاح.');}
-function renderPresentationResult(style){const box=document.getElementById('ai-result');box.innerHTML=`<div class="ai-result-toolbar"><strong>📑 ${escapeHtml(presentationState.title)}</strong><div class="ai-toolbar-actions"><button onclick="exportPresentationHtml()">تصدير HTML</button><button onclick="window.print()">طباعة / PDF</button></div></div><div class="ai-status">${presentationState.slides.length} شرائح • يمكنك الضغط على أي شريحة لعرض تفاصيلها</div><div class="ai-slides-list">${presentationState.slides.map((sl,i)=>`<article class="ai-slide-card" onclick="editGeneratedSlide(${i})"><div class="ai-slide-num">SLIDE ${String(i+1).padStart(2,'0')}</div><h3>${escapeHtml(sl.title)}</h3><p>${escapeHtml(sl.body)}</p></article>`).join('')}</div>`;}
-function editGeneratedSlide(index){const sl=presentationState.slides[index];const title=prompt('عنوان الشريحة:',sl.title);if(title===null)return;const body=prompt('محتوى الشريحة:',sl.body);if(body===null)return;sl.title=title.trim()||sl.title;sl.body=body.trim()||sl.body;renderPresentationResult(document.getElementById('ai-style').value);showToast('تم تعديل الشريحة.');}
-function exportPresentationHtml(){if(!presentationState.slides.length){showToast('أنشئ عرضًا أولاً.');return;}const cards=presentationState.slides.map((s,i)=>`<section class="slide"><small>SLIDE ${String(i+1).padStart(2,'0')}</small><h1>${escapeHtml(s.title)}</h1><p>${escapeHtml(s.body)}</p></section>`).join('');const html=`<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(presentationState.title)}</title><style>body{margin:0;background:#eef2ff;font-family:Arial,sans-serif;color:#182033}.deck{max-width:1100px;margin:30px auto}.slide{min-height:560px;box-sizing:border-box;margin:0 0 24px;padding:70px;border-radius:24px;background:white;box-shadow:0 15px 40px #0001;display:flex;flex-direction:column;justify-content:center}.slide small{color:#5b63d8;font-weight:800}.slide h1{font-size:42px;margin:15px 0}.slide p{font-size:22px;line-height:2;color:#526070}@media print{body{background:white}.deck{margin:0}.slide{box-shadow:none;break-after:page;margin:0;border-radius:0;min-height:100vh}}</style></head><body><main class="deck">${cards}</main></body></html>`;const blob=new Blob([html],{type:'text/html;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(presentationState.title||'presentation').replace(/[^\w\u0600-\u06FF\s-]/g,'').trim().replace(/\s+/g,'-')+'.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);showToast('تم تجهيز ملف العرض.');}
-
-/* ═══════════════════════════════════════════════════════
    🎁 Bundle Builder — إعدادات الحزمة
    ═══════════════════════════════════════════════════════
    غيّر هذا الرقم فقط لتغيير الخصم لكل تخصص.
@@ -2342,6 +2411,30 @@ function toggleBundleItem(subCode, checked) {
   if (checked) bundleSelectedCodes.add(subCode);
   else bundleSelectedCodes.delete(subCode);
   renderBundleOptions();
+}
+
+function openBundleFromSidebar() {
+  const panel = document.getElementById('bundle-panel');
+  const section = document.getElementById('bundle-maker');
+  const options = document.getElementById('bundle-options');
+  const btn = document.getElementById('bundle-show-options-btn');
+  const label = document.getElementById('bundle-show-options-label');
+  const icon = document.getElementById('bundle-show-options-icon');
+
+  // فتح الحزمة والتخصصات مباشرة من القائمة الجانبية.
+  if (panel) panel.hidden = false;
+  if (btn) btn.setAttribute('aria-expanded', 'true');
+  if (label) label.textContent = '📦 إخفاء الحزم والتخصصات';
+  if (icon) icon.textContent = '▲';
+  if (options) options.removeAttribute('hidden');
+  renderBundleOptions();
+
+  // إغلاق القائمة الجانبية ثم الانتقال إلى مكان الاختيار.
+  if (typeof toggleSidebar === 'function') toggleSidebar();
+  setTimeout(() => {
+    const target = section || panel;
+    if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 80);
 }
 
 function toggleBundleOptions() {
@@ -2745,6 +2838,204 @@ window.addEventListener('scroll',()=>{
   const pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
   document.getElementById('read-progress').style.width=pct+'%';
 },{passive:true});
+</script>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   🎯 الشريط الإعلاني العلوي المتحرك (Top Promo Banner)
+
+   التحكم من هنا فقط:
+     enabled: true   ← يظهر الشريط أسفل الهيدر
+     enabled: false  ← يختفي الشريط كليًا ويعود الموقع كما كان
+
+   يعرض الشريط كل المنتجات ذات السعر من مصفوفة products (العروض الثلاثة أولًا)
+   ويتحرك تلقائيًا بشكل متواصل. الأسماء والأسعار وخصم 12GB تُقرأ تلقائيًا
+   من الموقع، فأي منتج جديد أو تغيير سعر يظهر هنا دون تعديل.
+   ═══════════════════════════════════════════════════════════════ */
+const TOP_BANNER_CONFIG = {
+  enabled: true
+};
+
+(function initTopBanner(){
+  if (!TOP_BANNER_CONFIG || !TOP_BANNER_CONFIG.enabled) return;
+
+  // العروض المميزة تظهر أولًا بتصميم خاص (رموزها الفعلية داخل مصفوفة products)
+  const FEATURED = [
+    { code: 'OFR_12GB', icon: '🎁', badge: '🔥 الأفضل قيمة' },
+    { code: 'OFR_4GB',  icon: '📦' },
+    { code: 'OFR_2027', icon: '✨' }
+  ];
+  const SPEED = 42;          // سرعة الحركة بالبكسل في الثانية
+  const RESUME_DELAY = 2500; // مهلة الاستئناف بعد أن يسحب المستخدم يدويًا (مللي ثانية)
+
+  let banner = null, rafId = 0, io = null;
+  try {
+    const anchor = document.getElementById('search-section');
+    if (!anchor || !anchor.parentNode) return;
+    if (typeof products === 'undefined' || !Array.isArray(products)) return;
+    if (document.getElementById('top-promo')) return;
+
+    const fmt = n => Number(n || 0).toLocaleString('en-US');
+    const el = (tag, cls, text) => {
+      const node = document.createElement(tag);
+      if (cls) node.className = cls;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    };
+
+    // ترتيب العرض: العروض المميزة ثم بقية المنتجات المسعّرة بترتيب الموقع
+    const featCodes = FEATURED.map(f => f.code);
+    const list = [];
+    FEATURED.forEach(cfg => {
+      const p = products.find(x => x && x.subCode === cfg.code);
+      if (p && Number(p.price) > 0) list.push({ p, cfg });
+    });
+    products.forEach(p => {
+      if (p && Number(p.price) > 0 && featCodes.indexOf(p.subCode) === -1) list.push({ p, cfg: null });
+    });
+    if (!list.length) return;
+
+    // فتح المنتج عبر نفس دالة التنقل الموجودة في الموقع (كالقائمة الجانبية)
+    function openOffer(p){
+      try {
+        const cat = (typeof getCategoryForSubCode === 'function') ? getCategoryForSubCode(p.subCode) : '';
+        selectSubCategory(p.subCode, p.subName, cat);
+        const grid = document.getElementById('products-grid');
+        if (grid) {
+          // 122px = الهيدر (64) + شريط المسار (42) + هامش
+          const y = grid.getBoundingClientRect().top + window.pageYOffset - 122;
+          window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+        }
+      } catch (err) { console.warn('[TopBanner] openOffer:', err); }
+    }
+
+    // أيقونة القسم = أول رمز في اسم القسم، واسم القسم بدون الرمز
+    function catInfo(subCode){
+      let cat = '';
+      try { cat = (typeof getCategoryForSubCode === 'function') ? String(getCategoryForSubCode(subCode) || '') : ''; } catch (e) {}
+      const m = cat.match(/^(\S+)\s+(.+)$/);
+      return m ? { icon: m[1], name: m[2] } : { icon: '📄', name: cat };
+    }
+
+    function buildItem(entry, isClone){
+      const p = entry.p, cfg = entry.cfg, ci = catInfo(p.subCode);
+      const disc = (cfg && typeof BUNDLE_FIXED_DISCOUNTS !== 'undefined' && BUNDLE_FIXED_DISCOUNTS[p.subCode])
+        ? Number(BUNDLE_FIXED_DISCOUNTS[p.subCode]) : 0;
+      const badgeText = cfg ? (cfg.badge || p.badge || '') : '';
+
+      const btn = el('button', 'tp-item' + (cfg ? ' tp-featured' : ''));
+      btn.type = 'button';
+      btn.setAttribute('aria-label',
+        p.name + ' — ' + fmt(p.price) + ' دج' + (disc ? ' — خصم ' + fmt(disc) + ' دج' : '') + ' — عرض التفاصيل');
+      if (isClone) { btn.setAttribute('aria-hidden', 'true'); btn.tabIndex = -1; }
+
+      btn.appendChild(el('span', 'tp-ico', cfg ? (cfg.icon || '🎁') : ci.icon));
+
+      const txt = el('span', 'tp-txt');
+      txt.appendChild(el('span', 'tp-name', p.name));
+      const priceRow = el('span', 'tp-price-row');
+      priceRow.appendChild(el('span', 'tp-price', fmt(p.price)));
+      priceRow.appendChild(el('span', 'tp-cur', 'دج'));
+      if (disc) priceRow.appendChild(el('span', 'tp-save', 'خصم ' + fmt(disc) + ' دج'));
+      txt.appendChild(priceRow);
+      // نفس شرط الموقع: خصم 12GB يُطبَّق عند جمعها مع أي عنصر آخر
+      txt.appendChild(el('span', 'tp-note', disc ? 'عند جمعها مع أي عنصر آخر' : ci.name));
+      btn.appendChild(txt);
+
+      if (badgeText) btn.appendChild(el('span', 'tp-badge', badgeText));
+      btn.addEventListener('click', () => openOffer(p));
+      return btn;
+    }
+
+    banner = el('section', null);
+    banner.id = 'top-promo';
+    banner.setAttribute('aria-label', 'حزم وعروض باوربوينت');
+
+    const inner = el('div', 'tp-inner');
+    const head = el('div', 'tp-head');
+    const kicker = el('span', 'tp-kicker');
+    kicker.appendChild(el('span', 'tp-dot'));
+    kicker.appendChild(el('span', null, 'حزم وعروض باوربوينت'));
+    head.appendChild(kicker);
+    head.appendChild(el('span', 'tp-hint', list.length + ' منتجًا · المس للإيقاف'));
+    head.appendChild(el('span', 'tp-sub', list.length + ' منتجًا — اختر ما يناسبك واطلبه الآن'));
+    inner.appendChild(head);
+
+    const track = el('div', 'tp-track');
+    track.setAttribute('role', 'group');
+    track.setAttribute('aria-label', 'المنتجات والعروض');
+    list.forEach(entry => track.appendChild(buildItem(entry, false)));
+    list.forEach(entry => track.appendChild(buildItem(entry, true)));   // نسخة ثانية لتكرار سلس بلا فراغ
+    inner.appendChild(track);
+    banner.appendChild(inner);
+
+    anchor.parentNode.insertBefore(banner, anchor);
+    document.body.classList.add('has-top-promo');
+
+    /* ───────── الحركة المتواصلة ───────── */
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;     // بدون حركة تلقائية: يبقى السحب اليدوي متاحًا
+
+    const n = list.length;
+    const dir = (getComputedStyle(document.documentElement).direction === 'rtl') ? -1 : 1;
+    let pos = 0, lastSetAbs = 0, setW = 0, lastT = 0;
+    let hovering = false, touching = false, focused = false, onScreen = true, holdUntil = 0;
+
+    function measure(){
+      const kids = track.children;
+      if (kids.length < n * 2) return;
+      setW = Math.abs(kids[n].getBoundingClientRect().left - kids[0].getBoundingClientRect().left);
+      if (setW <= track.clientWidth) setW = 0;   // المحتوى لا يكفي للتمرير
+    }
+
+    function frame(t){
+      rafId = requestAnimationFrame(frame);
+      const dt = Math.min(50, t - (lastT || t)) / 1000;
+      lastT = t;
+      if (!setW) { measure(); return; }
+      if (hovering || touching || focused || !onScreen || document.hidden || t < holdUntil) return;
+      pos += SPEED * dt;
+      if (pos >= setW) pos -= setW;
+      lastSetAbs = pos;
+      track.scrollLeft = dir * pos;
+    }
+
+    // السحب اليدوي: نعتمد موضع المستخدم ثم نستأنف بعد مهلة
+    track.addEventListener('scroll', () => {
+      const cur = Math.abs(track.scrollLeft);
+      if (Math.abs(cur - lastSetAbs) > 2) {
+        pos = cur;
+        holdUntil = performance.now() + RESUME_DELAY;
+        if (setW && !touching && pos >= setW) { pos -= setW; lastSetAbs = pos; track.scrollLeft = dir * pos; }
+        else lastSetAbs = cur;
+      }
+    }, { passive: true });
+
+    track.addEventListener('touchstart', () => { touching = true; }, { passive: true });
+    const endTouch = () => { touching = false; holdUntil = performance.now() + RESUME_DELAY; };
+    track.addEventListener('touchend', endTouch, { passive: true });
+    track.addEventListener('touchcancel', endTouch, { passive: true });
+    track.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hovering = true; });
+    track.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') hovering = false; });
+    track.addEventListener('focusin', () => { focused = true; });
+    track.addEventListener('focusout', () => { focused = false; });
+    window.addEventListener('resize', () => { setW = 0; }, { passive: true });
+
+    // توقف الحركة عندما يخرج الشريط من الشاشة لتوفير المعالج والبطارية
+    if ('IntersectionObserver' in window) {
+      io = new IntersectionObserver(es => { onScreen = es[0].isIntersecting; }, { threshold: 0 });
+      io.observe(banner);
+    }
+    rafId = requestAnimationFrame(frame);
+  } catch (err) {
+    // أي خطأ: نُزيل الشريط ونترك الموقع كما هو دون أي تأثير
+    console.warn('[TopBanner] disabled due to error:', err);
+    if (rafId) cancelAnimationFrame(rafId);
+    if (io) io.disconnect();
+    if (banner && banner.parentNode) banner.parentNode.removeChild(banner);
+    document.body.classList.remove('has-top-promo');
+  }
+})();
 </script>
 </body>
 </html>
